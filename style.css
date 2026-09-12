@@ -105,6 +105,29 @@ nav a:hover {
     margin-bottom: 20px;
 }
 
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #00d9ff;
+    box-shadow: 0 0 25px rgba(0, 217, 255, 0.35);
+    flex-shrink: 0;
+}
+
+.about-text{
+    flex: 1;
+    min-width: 260px;
+}
+
 #quote-section {
     min-height: 450px;
     display: flex;
@@ -117,19 +140,57 @@ nav a:hover {
     background-repeat: no-repeat;
 }
 
-.quotebox {
-    max-width: 850px;
-    padding: 45px 50px;
-    background: rgba(0, 0, 0, 0.82);
-    border-radius: 15px;
+.quote-box {
+    position: relative;
+    max-width: 750px;
+    width: 100%;
+    padding: 40px 60px;
+    background: #000000;
+    border-radius: 20px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5)
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.quickbox p{
+.quote-box::after {
+    content: "";
+    position: absolute;
+    bottom: -22px;
+    left: 60px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 24px solid #000000;
+}
+
+.quote-box .quote-mark-open{
+    position: absolute;
+    top: -18px;
+    left: 30px;
+    font-size: 60px;
+    font-weight: 900;
+    color: #00d9ff;
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.quote-box .quote-mark-close{
+    position: absolute;
+    bottom: -18px;
+    right: 30px;
+    font-size: 60px;
+    font-weight: 900;
+    color: #00d9ff;
+    font-family: Georgia, serif;
+    line-height: 1;
+} 
+
+.quote-box p{
     font-family: 'Rajdhani', sans-serif;
+    color: white;
     font-size: 32px;
     font-weight: 700;
+    font-style: italic;
     line-height: 1.4;
     margin: 0;
     letter-spacing: 1px;
@@ -166,8 +227,10 @@ nav a:hover {
 }
 
 #skills {
-    padding: 1000px 30px;
-    text-align: center;
+    padding: 100px 30px;
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 #skills h2 {
@@ -175,18 +238,38 @@ nav a:hover {
     letter-spacing: 1px;
     font-size: 36px;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 #skills ul {
     list-style-type: none;
     padding: 0;
-    display: inline-block;
-    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
 }
 
 #skills li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
     font-size: 18px;
-    margin: 12px 0;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+#skills li:hover {
+    border-color: #00d9ff;
+    transform: translateY(-2px);
+}
+
+#skills li i {
+    color: #00d9ff;
+    font-size: 20px;
+    width: 24px;
+    text-align: center;
 }
 
 #devlog{
@@ -204,20 +287,57 @@ nav a:hover {
 }
 
 #devlog article {
-    padding: 30px;
-    margin-top: 30px;
+    padding: 0;
+    margin-top: 20px;
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
 } 
 
-#devlog article h3 {
-    font-size: 24px;
+.devlog-toggle {
+    width: 100%;
+    display: flex;
+    Justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    color: white;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 24px 30px;
+    cursor: pointer;
+    text-align: left;
 }
 
+.devlog-icon {
+    font-size: 26px;
+    color: #00d9ff;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 20px;
+}
 
-#devlog article p {
+.devlog-entry.active .devlog-icon {
+    transform: rotate(45deg);
+}
+
+.devlog-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 30px;
+}
+
+.devlog-entry.active .devlog-content {
+    max-height: 300px;
+    padding: 0 30px 24px;
+}
+
+.devlog-content p {
     font-size: 17px;
+    margin: 0;
 }
 
 #contact {
@@ -386,18 +506,44 @@ footer {
         font-size: 16px;
     }
 
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+    }
+
     #quote-section {
         min-height: 380px;
         padding: 35px 20px;
         background-position: center;
     }
 
-    .quotebox {
+    .quote-box {
         padding: 30px 22px;
+        max-width: 90%;
     }
 
     .quote-box p {
-        font-size: 24px;
+        font-size: 20px;
+    }
+
+    .quote-box .quote-mark-open,
+    .quote-box .quote-mark-close {
+        font-size: 40px;
+    }
+
+    .quote-box .quote-mark-open {
+        top: -14px;
+        left: 18px;
+    }
+
+    .quote-box .quote-mark-close {
+        bottom: -14px;
+        right: 18px;
     }
 
     #projects {
@@ -428,6 +574,10 @@ footer {
         font-size: 29px;
     }
 
+    #skills ul {
+        grid-template-columns: 1fr;
+    }
+
     #devlog {
         padding: 70px 20px;
     }
@@ -438,6 +588,19 @@ footer {
 
     #devlog article {
         padding: 22px;
+    }
+
+    .devlog-toggle {
+        font-size: 17px;
+        padding: 18px 20px;
+    }
+
+    .devlog-content {
+        padding: 0 20px;
+    }
+
+    .devlog-entry.active .devlog-content {
+        padding: 0 20px 18px;
     }
 
     #contact {

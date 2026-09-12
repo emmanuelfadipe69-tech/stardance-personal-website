@@ -3,7 +3,7 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Emmanuel |personal website</title>
+        <title>Emmanuel | Personal Wesite</title>
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@700&family=inter:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -31,6 +31,10 @@
     <section id="about">
         <h2>About Me</h2>
 
+        <div class="about-content">
+
+            <img src="profile.jpeg" alt="Emmanuel Fadipe" class="profile-pic">
+            <div class="about-text">
         <p>Hello! I'm Emmanuel, a college student studying mechatronics, Programmer, tech enthusiast and problem solver.
             I love building things with technology and learning how to solve real life problems as well as useful tech project that can improve living.
         </p>
@@ -38,13 +42,18 @@
         <p>
               Am currently still developing my skills, while exploring ideas such as robotics, automation and IOT.
         </p>
+            </div>
+        </div>
     </section>
 
     <section id="quote-section">
         <div class="quote-box">
+            <span class="quote-mark-open">"</span>
             <p>
                 "I believe every problem is just an unresolved system waiting to be understood."
             </p>
+            <span class="quote-mark-close">"</span>
+
         </div>
 
     </section>
@@ -73,31 +82,62 @@
         <h2>My skills</h2>
 
         <ul>
-            <li>Python</li>
-            <li>C++</li>
-            <li>Arduino</li>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>problem solving<li>
+            <li><i class="fa-brands fa-python"></i> Python</li>
+            <li><i class="fa-solid fa-code"></i> C++</li>
+            <li><i class="fa-solid fa-microchip"></i> Arduino</li>
+            <li><i class="fa-brands fa-html5"></i> HTML</li>
+            <li><i class="fa-brands fa-css3-alt"></i> CSS</li>
+            <li><i class="fa-brands fa-js"></i> JavaScript</li>
+            <li><i class="fa-solid fa-puzzle-piece"></i> problem solving</li>
             </ul>
     </section>
 <section id="Devlog">
     <h2>Devlog</h2>
 
-    <article>
-        <h3> Started My Website</h3>
+    <article class="devlog-entry">
+        <button class="devlog-toggle">
+        <span class="devlog-title">Started My Website</span>
+        <span class="devlog-icon">+</span>
+        </button>
+        <div class="devlog-content">
         <p> I started building my personal website using HTML.
-            I am also learning by by building and documenting my progress along the way.
+            I am also learning by building and documenting my progress along the way.
             </p>
-    </article>
+            </div>
+        </article>
 
-    <article>
-        <h3>Learning and Building</h3>
+        <article class="devlog-entry">
+            <button class="devlog-toggle">
+                <span class="devlog-title">Learning and Building</span>
+                <span class="devlog-icon">+</span>
+                </button>
+                <div class="devlog-content">
         <p> I plan to use this devlog to record what i learn, the projects i build, the challenges i face, and how i solve them.
             </p>
+            </div>
+    </article>
+
+    <article class="devlog-entry">
+        <button class="devlog-toggle">
+            <span class="devlog-title">Building process</span>
+            <span class="devlog-icon">+</span>
+        </button>
+        <div class="devlog-content">
+            <p>While building my website i ensountered some problems one of which was the background structure when i previewed the website on chrome i came to dislike the whole structure cause it looked like a poster with words written on top, so i had to change that by adding more than one background to it and making the backgrond have interactive features and automatic slide-show features, and also to make my page interactive.</p>
+        </div>
+    </article>
+
+    <article class="devlog-entry">
+        <button class="devlog-toggle">
+            <span class="devlog-title">Build-up</span>
+            <span class="devlog-icon">+</span>
+        </button>
+        <div class="devlog-content">
+            <p>While building my website i also thought of how the website would look like on mobile phones so i had it structured in a way it could adapt to different screen sizes without having the background looking stretched because it was initially built on laptop screen size. I also added imojis and logos so as to make the website more visualizing and exciting when u look at it.</p>
+        </div>
     </article>
 </section>
+
 <section id="contact">
     <h2>Contact Me</h2>
 
@@ -117,7 +157,7 @@
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
             <a href="#skills">Skills</a>
-            <a href="#devlog">Devlog</a>
+            <a href="#Devlog">Devlog</a>
             <a href="#contact">Contact</a>
         </div>
 
@@ -133,7 +173,7 @@
 
     <p class="footer-bottom">© 2026 Emmanuel Fadipe. All rights reserved.</p>
 
-    <script src="script"></script>
+    <script src="script.js"></script>
 
         </body>
     </html>

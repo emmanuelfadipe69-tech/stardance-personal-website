@@ -1,6 +1,6 @@
-const homeslides = [
+const homeSlides = [
     {
-    text: "Welcome to my Personal Websites",
+    text: "Welcome to my Personal Website",
     image: "homebar1.jpg",
     textColor: "#ffffff",
     align: "left",
@@ -16,27 +16,29 @@ const homeslides = [
 
     {
         text: "Turning Ideas Into Real Tech Projects",
-        image: "background3.jpg",
+        image: "homebar3.jpg",
         textColor: "#12102b",
+        iconColor: "orange",
         align: "right",
         icon: "fa-solid fa-lightbulb"
     }
 ];
 
-let currentslide = 0;
-const rotatingText = document.getElementByld('rotating-text');
-const rotatingIcon = document.getElementByld('rotating-icon');
-const homesection = document.getElementByld('home');
+let currentSlide = 0;
+const rotatingText = document.getElementById('rotating-text');
+const rotatingIcon = document.getElementById('rotating-icon');
+const homeSection = document.getElementById('home');
 
-function applyslide(index) {
-    const slide = homeslides[index];
+function applySlide(index) {
+    const slide = homeSlides[index];
 
-    homesection.style.backgroundimage = 'Url("${slide.image}")';
-    homesection.style.alignitems = slide.align === "right" ? "flex-end" : "flex-start";
-    homesection.style.textAlign = slide.align;
+    homeSection.style.backgroundImage = `url("${slide.image}")`;
+    homeSection.style.alignItems = slide.align === "right" ? "flex-end" : "flex-start";
+    homeSection.style.textAlign = slide.align;
 
     rotatingText.style.color = slide.textColor;
     rotatingText.textContent = slide.text;
+    rotatingIcon.style.color = slide.iconColor || slide.textColor;
 
     if (slide.icon) {
         rotatingIcon.className = slide.icon;
@@ -46,16 +48,23 @@ function applyslide(index) {
     }
 }
 
-applyslide(0);
+applySlide(0);
 
 setInterval(() => {
     rotatingText.style.opacity = 0;
-    rotatingText.style.opacity = 0;
+    rotatingIcon.style.opacity = 0;
 
     setTimeout(() => {
-        currentslide = (currentSlide+1) % homeslides.length;
+        currentSlide = (currentSlide+1) % homeSlides.length;
         applySlide(currentSlide);
         rotatingText.style.opacity = 1;
         rotatingIcon.style.opacity = 1;
-    }, 500);
+    }, 500)
 }, 4000);
+
+document.querySelectorAll('.devlog-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+        const entry = button.closest('.devlog-entry');
+        entry.classList.toggle('active');
+    });
+});
